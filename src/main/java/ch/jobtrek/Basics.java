@@ -21,7 +21,7 @@ public class Basics {
         text = "";
         for (String word: words) {
             if (word.length() <= 4 && word.toLowerCase().startsWith("t"))
-                text += word.toUpperCase();
+                text += word.toUpperCase() + " ";
         }
         return text.substring(0, text.length()-1);
     }
