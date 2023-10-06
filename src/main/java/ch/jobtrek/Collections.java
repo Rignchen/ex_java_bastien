@@ -17,7 +17,11 @@ public class Collections {
         output.add(new ArrayList<String>());
         output.add(new ArrayList<String>());
         for (String word:array) {
-            //if (word.length() > size) output[1].add(word);
+            if (word.length() > size) {
+                output.get(1).add(word);
+            } else {
+                output.get(0).add(word);
+            }
         }
         return output;
     }

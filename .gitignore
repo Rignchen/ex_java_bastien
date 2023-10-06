@@ -1,3 +1,7 @@
+### My commits ###
+commit.py
+
+### STS ###
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
