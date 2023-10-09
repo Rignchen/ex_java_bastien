@@ -1,7 +1,11 @@
 package ch.jobtrek;
 
-import java.util.List;
-import java.util.Map;
+import org.assertj.core.data.MapEntry;
+
+import java.lang.reflect.Array;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Collections {
 
@@ -31,13 +35,12 @@ public class Collections {
      * duplicates, sorted by frequency of occurrence
      */
     public static List<Integer> frequencyOfApparition(List<Integer> numbers) {
-        List<Integer> output = new ArrayList<>();
-        for (Integer number:numbers) {
-            if (!output.contains(number)) {
-                output.add(number);
-            }
-        }
-        return output;
+        return numbers.stream()
+                .collect(Collectors.groupingBy(Integer::intValue,Collectors.counting()))
+                .entrySet().stream()
+                .sorted(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
     }
 
     /**
