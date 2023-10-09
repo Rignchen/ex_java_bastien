@@ -2,8 +2,10 @@ package ch.jobtrek;
 
 import ch.jobtrek.sbb.Tunnelable;
 
+import java.io.FileNotFoundException;
 import java.net.URI;
 import java.util.*;
+import java.io.File;
 
 public class Csv {
 

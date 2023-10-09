@@ -49,7 +49,18 @@ public class Collections {
      * Should return zero if there is no numbers
      */
     public static Integer sumArrays(List<List<Integer>> numbers) {
-        return 3; // Replace with your code here
+        var output = 0;
+        for (var i:numbers) {
+            for (var j:i) {
+                if (j%2==1) {
+                    output += 2*j;
+                }
+                else {
+                    output += j;
+                }
+            }
+        }
+        return output;
     }
 
     /**
@@ -57,6 +68,9 @@ public class Collections {
      * @return The student with the best grade in the map
      */
     public static String bestStudent(Map<String, Integer> students) {
-        return ""; // Replace with your code here
+        return students
+                .entrySet().stream()
+                .max(Comparator.comparing(Map.Entry::getKey))
+                .get().getKey();
     }
 }
