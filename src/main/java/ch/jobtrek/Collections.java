@@ -1,6 +1,5 @@
 package ch.jobtrek;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +31,13 @@ public class Collections {
      * duplicates, sorted by frequency of occurrence
      */
     public static List<Integer> frequencyOfApparition(List<Integer> numbers) {
-        
+        List<Integer> output = new ArrayList<>();
+        for (Integer number:numbers) {
+            if (!output.contains(number)) {
+                output.add(number);
+            }
+        }
+        return output;
     }
 
     /**
@@ -41,7 +46,7 @@ public class Collections {
      * Should return zero if there is no numbers
      */
     public static Integer sumArrays(List<List<Integer>> numbers) {
-        return 1;
+        return 3; // Replace with your code here
     }
 
     /**
@@ -49,6 +54,6 @@ public class Collections {
      * @return The student with the best grade in the map
      */
     public static String bestStudent(Map<String, Integer> students) {
-        return new String();
+        return ""; // Replace with your code here
     }
 }

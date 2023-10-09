@@ -1,6 +1,6 @@
 package ch.jobtrek;
 
-//import ch.jobtrek.sbb.Tunnel;
+import ch.jobtrek.sbb.Tunnel;
 import ch.jobtrek.sbb.Tunnelable;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CsvTest {
 
-    /**List<Tunnelable> tunnels;
+    List<Tunnelable> tunnels;
 
     Tunnel gotthard = new Tunnel("Gotthard-Basistunnel", 57.363, 2016, "Ticino");
     Tunnel simplon = new Tunnel("Simplontunnel", 19.82, 1900, "Valais");
@@ -57,5 +57,5 @@ class CsvTest {
     @Test
     void yearWithBiggestTunnelBuilds() {
         assertEquals(1882, Csv.yearWithBiggestTunnelBuilds(tunnels));
-    }*/
+    }
 }
