@@ -17,17 +17,8 @@ public class Collections {
      * of the size, and another with the stings longer than the size
      */
     public static List<List<String>> chunkArrayByStringSize(List<String> array, int size) {
-        List<List<String>> output = new ArrayList<List<String>>();
-        output.add(new ArrayList<String>());
-        output.add(new ArrayList<String>());
-        for (String word:array) {
-            if (word.length() > size) {
-                output.get(1).add(word);
-            } else {
-                output.get(0).add(word);
-            }
-        }
-        return output;
+        return List.of(array.stream().filter(word -> word.length() <= size).toList(),
+                       array.stream().filter(word -> word.length() >  size).toList());
     }
 
     /**
@@ -37,7 +28,7 @@ public class Collections {
      */
     public static List<Integer> frequencyOfApparition(List<Integer> numbers) {
         return numbers.stream()
-                .collect(Collectors.groupingBy(Integer::intValue,Collectors.counting()))
+                .collect(Collectors.groupingBy(Integer::intValue, Collectors.counting()))
                 .entrySet().stream()
                 .sorted(Map.Entry.comparingByValue())
                 .map(Map.Entry::getKey)

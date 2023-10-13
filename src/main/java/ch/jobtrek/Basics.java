@@ -1,5 +1,7 @@
 package ch.jobtrek;
 
+import java.util.Arrays;
+
 public class Basics {
 
     /**
@@ -8,7 +10,7 @@ public class Basics {
      * in all other cases, return false
      */
     public static boolean someConditionals(int number1, int number2) {
-        return number1>10||(number1%2==0&&number2%2==0);
+        return number1 > 10 || (number1 % 2 == 0 && number2 % 2 == 0);
     }
 
     /**
@@ -17,22 +19,19 @@ public class Basics {
      * with letter T. All words should be uppercase and separated by spaces
      */
     public static String strings(String text) {
-        String[] words = text.split(" ");
-        text = "";
-        for (String word: words) {
-            if (word.length() <= 4 && word.toLowerCase().startsWith("t"))
-                text += word.toUpperCase() + " ";
-        }
-        return text.substring(0, text.length()-1);
+        return Arrays.stream(text.split(" "))
+                .filter(word -> word.length() <= 4 && word.startsWith("T")).map(String::toUpperCase)
+                .reduce((a,b) -> a + " " + b)
+                .get();
     }
 
     /**
-     * @param needle The word you need to replace
+     * @param needle   The word you need to replace
      * @param haystack A string in which you need to replace the needle by the new word
-     * @param newWord The replacement word
+     * @param newWord  The replacement word
      * @return A new string where the needle is replaced by newWord
      */
     public static String findAndReplace(String needle, String haystack, String newWord) {
-        return haystack.replaceAll(needle,newWord);
+        return haystack.replaceAll(needle, newWord);
     }
 }
