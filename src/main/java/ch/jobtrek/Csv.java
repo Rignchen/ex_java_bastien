@@ -33,7 +33,10 @@ public class Csv {
 	 * @return A List containing only the 10 longest tunnels
 	 */
 	public static List<Tunnelable> tenLongestTunnels(List<Tunnelable> tunnels) {
-		return tunnels.stream().sorted(Comparator.comparing(Tunnelable::getKilometerLength,Comparator.reverseOrder())).limit(10).toList();
+		return tunnels.stream()
+				.sorted(Comparator.comparing(Tunnelable::getKilometerLength,Comparator.reverseOrder()))
+				.limit(10)
+				.toList();
 	}
 
 	/**
@@ -41,7 +44,10 @@ public class Csv {
 	 * @return The computed average of the length of all tunnels
 	 */
 	public static double computeAverageLength(List<Tunnelable> tunnels) {
-		return tunnels.stream().map(Tunnelable::getKilometerLength).reduce(Double::sum).get() / tunnels.size();
+		return tunnels.stream()
+				.map(Tunnelable::getKilometerLength)
+				.reduce(Double::sum)
+				.get()/tunnels.size();
 	}
 
 	/**
