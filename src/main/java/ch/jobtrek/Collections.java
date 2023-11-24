@@ -1,12 +1,7 @@
 package ch.jobtrek;
 
-import org.assertj.core.data.MapEntry;
-
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class Collections {
 
@@ -18,7 +13,7 @@ public class Collections {
      */
     public static List<List<String>> chunkArrayByStringSize(List<String> array, int size) {
         return List.of(array.stream().filter(word -> word.length() <= size).toList(),
-                       array.stream().filter(word -> word.length() >  size).toList());
+            array.stream().filter(word -> word.length() >  size).toList());
     }
 
     /**
@@ -28,11 +23,11 @@ public class Collections {
      */
     public static List<Integer> frequencyOfApparition(List<Integer> numbers) {
         return numbers.stream()
-                .collect(Collectors.groupingBy(Integer::intValue, Collectors.counting()))
-                .entrySet().stream()
-                .sorted(Map.Entry.comparingByValue())
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toList());
+            .collect(Collectors.groupingBy(Integer::intValue, Collectors.counting()))
+            .entrySet().stream()
+            .sorted(Map.Entry.comparingByValue())
+            .map(Map.Entry::getKey)
+            .collect(Collectors.toList());
     }
 
     /**
@@ -50,8 +45,8 @@ public class Collections {
      */
     public static String bestStudent(Map<String, Integer> students) {
         return students
-                .entrySet().stream()
-                .max(Comparator.comparing(Map.Entry::getKey))
-                .get().getKey();
+            .entrySet().stream()
+            .max(Comparator.comparing(Map.Entry::getKey))
+            .get().getKey();
     }
 }
